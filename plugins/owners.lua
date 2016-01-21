@@ -4,12 +4,12 @@ local function lock_group_namemod(msg, data, target)
   local group_name_set = data[tostring(target)]['settings']['set_name']
   local group_name_lock = data[tostring(target)]['settings']['lock_name']
   if group_name_lock == 'yes' then
-    return 'Group name is already locked'
+    return 'Group name is already locked Sir'
   else
     data[tostring(target)]['settings']['lock_name'] = 'yes'
     save_data(_config.moderation.data, data)
     rename_chat('chat#id'..target, group_name_set, ok_cb, false)
-  return 'Group name has been locked'
+  return 'Group name has been locked Sir'
   end
 end
 
@@ -17,51 +17,51 @@ local function unlock_group_namemod(msg, data, target)
   local group_name_set = data[tostring(target)]['settings']['set_name']
   local group_name_lock = data[tostring(target)]['settings']['lock_name']
   if group_name_lock == 'no' then
-    return 'Group name is already unlocked'
+    return 'Group name is already unlocked Sir'
   else
     data[tostring(target)]['settings']['lock_name'] = 'no'
     save_data(_config.moderation.data, data)
-  return 'Group name has been unlocked'
+  return 'Group name has been unlocked Sir'
   end
 end
 
 local function lock_group_floodmod(msg, data, target)
   local group_flood_lock = data[tostring(target)]['settings']['flood']
   if group_flood_lock == 'yes' then
-    return 'Group flood is locked'
+    return 'Group anti spam is locked Sir'
   else
     data[tostring(target)]['settings']['flood'] = 'yes'
     save_data(_config.moderation.data, data)
-  return 'Group flood has been locked'
+  return 'Group anti spam has been locked Sir'
   end
 end
 
 local function unlock_group_floodmod(msg, data, target)
   local group_flood_lock = data[tostring(target)]['settings']['flood']
   if group_flood_lock == 'no' then
-    return 'Group flood is not locked'
+    return 'Group anti spam is not locked Sir'
   else
     data[tostring(target)]['settings']['flood'] = 'no'
     save_data(_config.moderation.data, data)
-  return 'Group flood has been unlocked'
+  return 'Group flood has been unlocked Sir'
   end
 end
 
 local function lock_group_membermod(msg, data, target)
   local group_member_lock = data[tostring(target)]['settings']['lock_member']
   if group_member_lock == 'yes' then
-    return 'Group members are already locked'
+    return 'Group members are already locked Sir'
   else
     data[tostring(target)]['settings']['lock_member'] = 'yes'
     save_data(_config.moderation.data, data)
   end
-  return 'Group members has been locked'
+  return 'Group members has been locked Sir'
 end
 
 local function unlock_group_membermod(msg, data, target)
   local group_member_lock = data[tostring(target)]['settings']['lock_member']
   if group_member_lock == 'no' then
-    return 'Group members are not locked'
+    return 'Group members are not locked Sir'
   else
     data[tostring(target)]['settings']['lock_member'] = 'no'
     save_data(_config.moderation.data, data)
@@ -72,11 +72,11 @@ end
 local function unlock_group_photomod(msg, data, target)
   local group_photo_lock = data[tostring(target)]['settings']['lock_photo']
   if group_photo_lock == 'no' then
-      return 'Group photo is not locked'
+      return 'Group photo is not locked Sir'
   else
       data[tostring(target)]['settings']['lock_photo'] = 'no'
       save_data(_config.moderation.data, data)
-  return 'Group photo has been unlocked'
+  return 'Group photo has been unlocked Sir'
   end
 end
 
@@ -87,7 +87,7 @@ local function show_group_settingsmod(msg, data, target)
         NUM_MSG_MAX = tonumber(data[tostring(msg.to.id)]['settings']['flood_msg_max'])
         print('custom'..NUM_MSG_MAX)
       else 
-        NUM_MSG_MAX = 5
+        NUM_MSG_MAX = 8
       end
     end
     local settings = data[tostring(target)]['settings']
@@ -207,7 +207,7 @@ local function run(msg, matches)
       save_data(_config.moderation.data, data)
       local name = user_print_name(msg.from)
       savelog(matches[1], name.." ["..msg.from.id.."] set flood to ["..matches[3].."]")
-      return 'Group flood has been set to '..matches[3]
+      return 'Group flood sens has been set to '..matches[3]
     end
     if matches[2] == 'lock' then
       if not is_owner2(msg.from.id, chat_id) then
@@ -257,7 +257,7 @@ local function run(msg, matches)
         local name = user_print_name(msg.from)
         savelog(matches[1], name.." ["..msg.from.id.."] revoked group link ")
         export_chat_link(receiver, callback, true)
-        return "Created a new new link ! \n owner can get it by /owners "..matches[1].." get link"
+        return "Created a new new link Sir ! \n owner can get it by /owners "..matches[1].." get link"
       end
     end
     if matches[2] == 'get' then 
@@ -267,7 +267,7 @@ local function run(msg, matches)
         end
         local group_link = data[tostring(matches[1])]['settings']['set_link']
         if not group_link then 
-          return "Create a link using /newlink first !"
+          return "Create a link using /newlink first Sir !"
         end
         local name = user_print_name(msg.from)
         savelog(matches[1], name.." ["..msg.from.id.."] requested group link ["..group_link.."]")
@@ -306,12 +306,12 @@ local function run(msg, matches)
 end
 return {
   patterns = {
-    "^[!/]owners (%d+) ([^%s]+) (.*)$",
-    "^[!/]owners (%d+) ([^%s]+)$",
-    "^[!/](changeabout) (%d+) (.*)$",
-    "^[!/](changerules) (%d+) (.*)$",
-    "^[!/](changename) (%d+) (.*)$",
-		"^[!/](loggroup) (%d+)$"
+    "^[!/>]owners (%d+) ([^%s]+) (.*)$",
+    "^[!/>]owners (%d+) ([^%s]+)$",
+    "^[!/>](changeabout) (%d+) (.*)$",
+    "^[!/>](changerules) (%d+) (.*)$",
+    "^[!/>](changename) (%d+) (.*)$",
+		"^[!/>](loggroup) (%d+)$"
   },
   run = run
 }
