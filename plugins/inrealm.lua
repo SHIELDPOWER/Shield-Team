@@ -63,7 +63,7 @@ end
 
 local function set_description(msg, data, target, about)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "Mods just can use this plugin!"
     end
     local data_cat = 'description'
         data[tostring(target)][data_cat] = about
@@ -73,7 +73,7 @@ end
  
 local function set_rules(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "Mods just can use this plugin!"
     end
     local data_cat = 'rules'
         data[tostring(target)][data_cat] = rules
@@ -83,7 +83,7 @@ end
 -- lock/unlock group name. bot automatically change group name when locked
 local function lock_group_name(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "Mods just can use this plugin!"
     end
     local group_name_set = data[tostring(target)]['settings']['set_name']
     local group_name_lock = data[tostring(target)]['settings']['lock_name']
@@ -114,7 +114,7 @@ end
 --lock/unlock group member. bot automatically kick new added user when locked
 local function lock_group_member(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "Mods just can use this plugin!!"
     end
     local group_member_lock = data[tostring(target)]['settings']['lock_member']
         if group_member_lock == 'yes' then
@@ -128,7 +128,7 @@ end
  
 local function unlock_group_member(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "Mods just can use this plugin!!"
     end
     local group_member_lock = data[tostring(target)]['settings']['lock_member']
         if group_member_lock == 'no' then
@@ -143,7 +143,7 @@ end
 --lock/unlock group photo. bot automatically keep group photo when locked
 local function lock_group_photo(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "Mods just can use this plugin!"
     end
     local group_photo_lock = data[tostring(target)]['settings']['lock_photo']
         if group_photo_lock == 'yes' then
@@ -152,12 +152,12 @@ local function lock_group_photo(msg, data, target)
             data[tostring(target)]['settings']['set_photo'] = 'waiting'
             save_data(_config.moderation.data, data)
         end
-        return 'Please send me the group photo now'
+        return 'Please send me the group profile photo now'
 end
  
 local function unlock_group_photo(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "Mods just can use this plugin!!"
     end
     local group_photo_lock = data[tostring(target)]['settings']['lock_photo']
         if group_photo_lock == 'no' then
@@ -171,36 +171,36 @@ end
  
 local function lock_group_flood(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "Mods just can use this plugin!"
     end
     local group_flood_lock = data[tostring(target)]['settings']['flood']
         if group_flood_lock == 'yes' then
-            return 'Group flood is locked'
+            return 'Group anti spam is locked'
         else
             data[tostring(target)]['settings']['flood'] = 'yes'
             save_data(_config.moderation.data, data)
-        return 'Group flood has been locked'
+        return 'Group anti spam has been locked'
         end
 end
  
 local function unlock_group_flood(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "Mods just can use this plugin!!"
     end
     local group_flood_lock = data[tostring(target)]['settings']['flood']
         if group_flood_lock == 'no' then
-            return 'Group flood is not locked'
+            return 'Group anti spam is not locked'
         else
             data[tostring(target)]['settings']['flood'] = 'no'
             save_data(_config.moderation.data, data)
-        return 'Group flood has been unlocked'
+        return 'Group anti spam has been unlocked'
         end
 end
 -- show group settings
 local function show_group_settings(msg, data, target)
     local data = load_data(_config.moderation.data, data)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "Mods just can use this plugin!"
     end
     local settings = data[tostring(target)]['settings']
     local text = "Group settings:\nLock group name : "..settings.lock_name.."\nLock group photo : "..settings.lock_photo.."\nLock group member : "..settings.lock_member
@@ -259,7 +259,7 @@ end
 
 local function admin_demote(msg, admin_id)
     if not is_sudo(msg) then
-        return "Access denied!"
+        return "!!Access denied!!"
     end
     local data = load_data(_config.moderation.data)
         local admins = 'admins'
@@ -272,7 +272,7 @@ local function admin_demote(msg, admin_id)
         end
         data[tostring(admins)][tostring(admin_id)] = nil
         save_data(_config.moderation.data, data)
-        return admin_id..' has been demoted from admin.'
+        return admin_id..' has been demoted from adminstrator.'
 end
  
 local function admin_list(msg)
@@ -654,26 +654,26 @@ end
 
 return {
   patterns = {
-    "^[!/](creategroup) (.*)$",
-    "^[!/](createrealm) (.*)$",
-    "^[!/](setabout) (%d+) (.*)$",
-    "^[!/](setrules) (%d+) (.*)$",
-    "^[!/](setname) (.*)$",
-    "^[!/](setgpname) (%d+) (.*)$",
-    "^[!/](setname) (%d+) (.*)$",
-        "^[!/](lock) (%d+) (.*)$",
-    "^[!/](unlock) (%d+) (.*)$",
-    "^[!/](setting) (%d+)$",
-        "^[!/](wholist)$",
-        "^[!/](who)$",
-        "^[!/](type)$",
-    "^[!/](kill) (chat) (%d+)$",
-    "^[!/](kill) (realm) (%d+)$",
-    "^[!/](addadmin) (.*)$", -- sudoers only
-    "^[!/](removeadmin) (.*)$", -- sudoers only
-    "^[!/](list) (.*)$",
-        "^[!/](log)$",
-        "^[!/](help)$",
+    "^[!/>](creategroup) (.*)$",
+    "^[!/>](createrealm) (.*)$",
+    "^[!/>](setabout) (%d+) (.*)$",
+    "^[!/>](setrules) (%d+) (.*)$",
+    "^[!/>](setname) (.*)$",
+    "^[!/>](setgpname) (%d+) (.*)$",
+    "^[!/>](setname) (%d+) (.*)$",
+        "^[!/>](lock) (%d+) (.*)$",
+    "^[!/>](unlock) (%d+) (.*)$",
+    "^[!/>](setting) (%d+)$",
+        "^[!/>](wholist)$",
+        "^[!/>](who)$",
+        "^[!/>](type)$",
+    "^[!/>](kill) (chat) (%d+)$",
+    "^[!/>](kill) (realm) (%d+)$",
+    "^[!/>](addadmin) (.*)$", -- sudoers only
+    "^[!/>](removeadmin) (.*)$", -- sudoers only
+    "^[!/>](list) (.*)$",
+        "^[!/>](log)$",
+        "^[!/>](help)$",
         "^!!tgservice (.+)$",
   },
   run = run
