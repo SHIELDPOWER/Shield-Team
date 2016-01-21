@@ -42,10 +42,10 @@ local function run(msg, matches)
 	 local data = load_data(_config.moderation.data)
     if matches[1] == 'join' and data[tostring(matches[2])] then
         if is_banned(msg.from.id, matches[2]) then
-	    return 'You are banned.'
+	    return 'You are get banned by SHIELDPOWER.'
 	 end
       if is_gbanned(msg.from.id) then
-            return 'You are globally banned.'
+            return 'You are globally banned by SHIELDPOWER.'
       end
       if data[tostring(matches[2])]['settings']['lock_member'] == 'yes' and not is_owner2(msg.from.id, matches[2]) then
         return 'Group is private.'
@@ -54,10 +54,10 @@ local function run(msg, matches)
           local user_id = "user#id"..msg.from.id
    	  chat_add_user(chat_id, user_id, ok_cb, false)   
 	  local group_name = data[tostring(matches[2])]['settings']['set_name']	
-	  return "Added you to chat:\n\n👥"..group_name.." (ID:"..matches[2]..")"
+	  return "SHIELDPOWER Added you to chat:\n\n👥"..group_name.." (ID:"..matches[2]..")"
         elseif matches[1] == 'join' and not data[tostring(matches[2])] then
 		
-         	return "Chat not found."
+         	return "SHIELDPOWER cant find group."
         end
      if matches[1] == 'chats'then
        if is_admin(msg) and msg.to.type == 'chat' then
@@ -68,7 +68,7 @@ local function run(msg, matches)
      end
      if matches[1] == 'chatlist'then
        if is_admin(msg) and msg.to.type == 'chat' then
-         send_document("chat#id"..msg.from.id, "./groups/lists/listed_groups.txt", ok_cb, false)
+         send_document("chat#id"..msg.from.id, "./groups/lists/listed_shieldgroups.txt", ok_cb, false)
        elseif msg.to.type ~= 'chat' then
          send_document("user#id"..msg.from.id, "./groups/lists/listed_groups.txt", ok_cb, false) 
        end      
@@ -78,10 +78,10 @@ end
 
 return {
     patterns = {
-      "^[/!](chats)$",
-      "^[/!](chatlist)$",
-      "^[/!](join) (.*)$",
-      "^[/!](kickme) (.*)$",
+      "^[/!>](chats)$",
+      "^[/!>](chatlist)$",
+      "^[/!>](join) (.*)$",
+      "^[/!>](kickme) (.*)$",
       "^!!tgservice (chat_add_user)$"
     },
     run = run,
