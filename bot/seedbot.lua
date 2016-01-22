@@ -425,6 +425,8 @@ will return group ban list
 
 *Only owner can use res,setowner,promote,demote and log commands
 
+Help By : SHIELD ™
+
 ]]
   }
   serialize_to_file(config, './data/config.lua')
