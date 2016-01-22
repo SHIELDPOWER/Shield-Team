@@ -415,6 +415,10 @@ will return group logs
 !banlist
 will return group ban list
 
+!tex : return text into img 
+
+!linkpv : return gp's link in pv (bot is reported)
+
 **U can use both "/" and "!" 
 
 
@@ -425,7 +429,7 @@ will return group ban list
 
 *Only owner can use res,setowner,promote,demote and log commands
 
-Help By : SHIELD ™
+Help By : 💀รհﻨεlժ💀 ™
 
 ]]
   }
