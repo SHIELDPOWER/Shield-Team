@@ -229,10 +229,8 @@ An advance Administration bot based on yagop/telegram-bot
 https://github.com/SHIELDPOWER/Shield-Team
 
 Admins
-@iwals [Founder]
-@imandaneshi [Developer]
-@Rondoozle [Developer]
-@seyedan25 [Manager]
+@KinG_SuPeR_AdMiN_SHIELD [Founder]
+@NAJAFIARISHARR [Developer]
 
 Special thanks to
 awkward_potato
@@ -241,8 +239,7 @@ topkecleon
 Vamptacus
 
 Our channels
-@teleseedch [English]
-@iranseed [persian]
+@tel_shield [persian]
 ]],
     help_text_realm = [[
 Realm Commands:
