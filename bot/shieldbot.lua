@@ -221,7 +221,7 @@ function create_config( )
     "all",
     "leave_ban"
     },
-    sudo_users = {138012635,0,tonumber(our_id)},--Sudo users
+    sudo_users = {138012635,161130739,0,tonumber(our_id)},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
     about_text = [[Teleseed v2 - Open Source
@@ -232,11 +232,12 @@ Admins
 @KinG_SuPeR_AdMiN_SHIELD [Founder]
 @NAJAFIARISHARR [Developer]
 
-Special thanks to
-awkward_potato
-Siyanew
-topkecleon
-Vamptacus
+Special tanks to
+pedi shield
+ariyasharrnajafi
+ramin hidden
+sina shield
+arman paydar
 
 Our channels
 @tel_shield [persian]
