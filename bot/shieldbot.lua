@@ -234,7 +234,7 @@ Admins
 
 Special thanks to
 pedi shield
-ariyasharrnajafi
+arisharrnajafi
 ramin hidden
 sina shield
 arman paydar
