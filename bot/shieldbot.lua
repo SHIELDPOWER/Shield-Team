@@ -232,12 +232,14 @@ Admins
 @KinG_SuPeR_AdMiN_SHIELD [Founder]
 @NAJAFIARISHARR [Developer]
 
-Special tanks to
+Special thanks to
 pedi shield
 ariyasharrnajafi
 ramin hidden
 sina shield
 arman paydar
+reza unix
+mehdi unix
 
 Our channels
 @tel_shield [persian]
